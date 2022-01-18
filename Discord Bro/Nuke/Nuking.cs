@@ -61,7 +61,6 @@ namespace Discord_Bro.Nuke
         {
             if (!CheckPermission(guild, Permissions.ManageEmojis))
             {
-                MessageHandler.ShowMessage(" [*] Bot has no permissions!", ConsoleColor.Red);
                 return;
             }
 
@@ -91,7 +90,6 @@ namespace Discord_Bro.Nuke
         {
             if (!CheckPermission(guild, Permissions.ManageRoles))
             {
-                MessageHandler.ShowMessage(" [*] Bot has no permissions!", ConsoleColor.Red);
                 return;
             }
 
@@ -115,7 +113,13 @@ namespace Discord_Bro.Nuke
 
         private static bool CheckPermission(DiscordGuild guild, Permissions permission)
         {
-            return guild.GetMemberAsync(Client.GetBotId()).GetAwaiter().GetResult().Permissions.HasPermission(permission);
+            if (guild.GetMemberAsync(Client.GetBotId()).GetAwaiter().GetResult().Permissions.HasPermission(permission))
+            {
+                return true;
+            }
+
+            MessageHandler.ShowMessage(" [*] Bot has no permissions!", ConsoleColor.Red);
+            return false;
         }
 
         /// <summary>
@@ -127,7 +131,6 @@ namespace Discord_Bro.Nuke
         {
             if (!CheckPermission(guild, Permissions.ManageChannels))
             {
-                MessageHandler.ShowMessage(" [*] Bot has no permissions!", ConsoleColor.Red);
                 return;
             }
 
@@ -158,7 +161,6 @@ namespace Discord_Bro.Nuke
         {
             if (!CheckPermission(guild, Permissions.BanMembers))
             {
-                MessageHandler.ShowMessage(" [*] Bot has no permissions!", ConsoleColor.Red);
                 return;
             }
 
@@ -189,7 +191,6 @@ namespace Discord_Bro.Nuke
         {
             if (!CheckPermission(guild, Permissions.KickMembers))
             {
-                MessageHandler.ShowMessage(" [*] Bot has no permissions!", ConsoleColor.Red);
                 return;
             }
 
@@ -249,7 +250,6 @@ namespace Discord_Bro.Nuke
         {
             if (!CheckPermission(guild, Permissions.ManageChannels))
             {
-                MessageHandler.ShowMessage(" [*] Bot has no permissions!", ConsoleColor.Red);
                 return;
             }
 
@@ -279,7 +279,6 @@ namespace Discord_Bro.Nuke
         {
             if (!CheckPermission(guild, Permissions.ManageRoles))
             {
-                MessageHandler.ShowMessage(" [*] Bot has no permissions!", ConsoleColor.Red);
                 return;
             }
 
