@@ -1,5 +1,7 @@
 # Discord-Nuker
 
+Requires .Net Core 3.1.0
+
 ![Discord Nuke](https://i.imgur.com/MLrEc5l.png)
 
 ## Features:
